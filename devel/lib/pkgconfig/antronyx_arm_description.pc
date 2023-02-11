@@ -1,0 +1,8 @@
+prefix=/home/antronyx/catkin_ws/devel
+
+Name: antronyx_arm_description
+Description: Description of antronyx_arm_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

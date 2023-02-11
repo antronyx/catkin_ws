@@ -1,0 +1,155 @@
+<?xml version="1.0" ?>
+<robot name="antronyx_arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find antronyx_arm_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find antronyx_arm_description)/urdf/antronyx_arm.trans" />
+<xacro:include filename="$(find antronyx_arm_description)/urdf/antronyx_arm.gazebo" />
+
+<!--EXTRA-->	
+<link name="dummy">
+   </link>
+
+
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0011390026436267657 -0.005986011045646393 0.07625058308932678" rpy="0 0 0"/>
+    <mass value="1.2433514231817175"/>
+    <inertia ixx="0.003209" iyy="0.003633" izz="0.001672" ixy="-0.0" iyz="6e-06" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://antronyx_arm_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://antronyx_arm_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hand_1">
+  <inertial>
+    <origin xyz="-0.001045412794791284 -0.021699059315876748 -0.02883508917135298" rpy="0 0 0"/>
+    <mass value="0.01382033191990982"/>
+    <inertia ixx="7e-06" iyy="5e-06" izz="4e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.074206 -0.026685 -0.099251" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://antronyx_arm_description/meshes/hand_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.074206 -0.026685 -0.099251" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://antronyx_arm_description/meshes/hand_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_1">
+  <inertial>
+    <origin xyz="-0.00017688640786213405 -0.019161536827441393 -0.021965942883675885" rpy="0 0 0"/>
+    <mass value="0.027106484822457942"/>
+    <inertia ixx="1.2e-05" iyy="1e-05" izz="2e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.074206 -0.026685 -0.143251" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://antronyx_arm_description/meshes/arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.074206 -0.026685 -0.143251" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://antronyx_arm_description/meshes/arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shoulder_1">
+  <inertial>
+    <origin xyz="-0.003678680754194058 -0.0005910553922383382 -0.00040380047547597386" rpy="0 0 0"/>
+    <mass value="0.008294533550909644"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="2e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.056111 -0.004981 -0.148751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://antronyx_arm_description/meshes/shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.056111 -0.004981 -0.148751" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://antronyx_arm_description/meshes/shoulder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="head_1">
+  <inertial>
+    <origin xyz="0.00014211200951306873 0.005102832781723643 0.03090280065498746" rpy="0 0 0"/>
+    <mass value="0.21430657847269097"/>
+    <inertia ixx="0.000144" iyy="0.000203" izz="0.000187" ixy="0.0" iyz="1e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.001147 -0.004981 -0.167791" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://antronyx_arm_description/meshes/head_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="grey"/>
+  </visual>
+  <collision>
+    <origin xyz="0.001147 -0.004981 -0.167791" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://antronyx_arm_description/meshes/head_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="hand_joint" type="continuous">
+  <origin xyz="0.0 0.0 -0.044" rpy="0 0 0"/>
+  <parent link="arm_1"/>
+  <child link="hand_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="arm_joint" type="continuous">
+  <origin xyz="-0.018095 0.021704 -0.0055" rpy="0 0 0"/>
+  <parent link="shoulder_1"/>
+  <child link="arm_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="sh_joint" type="continuous">
+  <origin xyz="-0.056111 0.004981 0.148751" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="shoulder_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="head_joint" type="continuous">
+  <origin xyz="-0.001147 0.004981 0.167791" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="head_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<!---EXTRA-->	
+  <joint name="dummy_joint" type="fixed">
+     <parent link="dummy"/>
+     <child link="base_link"/>
+   </joint>
+
+
+
+</robot>

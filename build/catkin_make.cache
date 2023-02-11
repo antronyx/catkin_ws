@@ -1,0 +1,2 @@
+antronyx_arm_description:joy_arm:joystick_drivers/joy:joystick_drivers/joystick_drivers:nao_robot/nao_apps:nao_robot/nao_bringup:nao_robot/nao_description:nao_robot/nao_robot:talos_description
+-DCATKIN_DEVEL_PREFIX=/home/antronyx/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/antronyx/catkin_ws/install -G Unix Makefiles

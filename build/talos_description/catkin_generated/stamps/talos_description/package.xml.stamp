@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+  <name>talos_description</name>
+  <version>1.0.3</version>
+  <description>The talos_description package</description>
+
+  <maintainer email="noobaca2@gmail.com">Devon Ash</maintainer>
+  <maintainer email="johnhe@openrobotics.com">John He</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://openrobotics.ca</url>
+
+  <author email="johnhe@openrobotics.com">John He</author>
+  <author email="noobaca2@gmail.com">Devon Ash</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+
+  <export>
+    <!--<gazebo plugin_path="${prefix}/lib" gazebo_media_path="${prefix}" />-->
+    <gazebo_ros plugin_path="${prefix}/lib" gazebo_media_path="${prefix}" />
+  </export>
+
+</package>

@@ -1,0 +1,22 @@
+antronyx_arm_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  # Position Controllers --------------------------------------
+  hand_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: hand_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: arm_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  sh_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: sh_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  head_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: head_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}

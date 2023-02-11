@@ -1,0 +1,8 @@
+prefix=/home/antronyx/catkin_ws/install
+
+Name: joy_arm
+Description: Description of joy_arm
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
